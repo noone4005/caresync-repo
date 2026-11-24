@@ -1,0 +1,16 @@
+{
+	"name": "adf-caresync-proje",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true,
+			"isExplicitlySet": false
+		}
+	},
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6852599f-4967-4814-af59-9884fc9ae251",
+		"tenantId": "da121781-72b5-4895-8425-f188eb1a6bb4"
+	}
+}
