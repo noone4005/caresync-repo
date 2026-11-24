@@ -1,0 +1,10 @@
+{
+	"name": "Ls_st",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stcaresycdata.dfs.core.windows.net/"
+		}
+	}
+}
