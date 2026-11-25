@@ -1,0 +1,98 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-caresync-proje"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://keyvault-caresync-pro.vault.azure.net/"
+		},
+		"LS_PostgreSql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "ep-super-flower-bi2m3yt2-pooler.c-5.ap-southeast-1.aws.neon.tech"
+		},
+		"LS_PostgreSql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "neondb"
+		},
+		"LS_PostgreSql_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "neondb_owner"
+		},
+		"Ls_AzureSqlDatabase_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "caresyncserver-server.database.windows.net"
+		},
+		"Ls_AzureSqlDatabase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "caresync-server"
+		},
+		"Ls_AzureSqlDatabase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin1"
+		},
+		"Ls_st_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stcaresycdata.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-caresync-proje_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"Ls_st_properties_typeProperties_url": {
+						"value": "[parameters('Ls_st_properties_typeProperties_url')]"
+					},
+					"LS_PostgreSql_properties_typeProperties_server": {
+						"value": "[parameters('LS_PostgreSql_properties_typeProperties_server')]"
+					},
+					"LS_PostgreSql_properties_typeProperties_database": {
+						"value": "[parameters('LS_PostgreSql_properties_typeProperties_database')]"
+					},
+					"LS_PostgreSql_properties_typeProperties_username": {
+						"value": "[parameters('LS_PostgreSql_properties_typeProperties_username')]"
+					},
+					"Ls_AzureSqlDatabase_properties_typeProperties_server": {
+						"value": "[parameters('Ls_AzureSqlDatabase_properties_typeProperties_server')]"
+					},
+					"Ls_AzureSqlDatabase_properties_typeProperties_database": {
+						"value": "[parameters('Ls_AzureSqlDatabase_properties_typeProperties_database')]"
+					},
+					"Ls_AzureSqlDatabase_properties_typeProperties_userName": {
+						"value": "[parameters('Ls_AzureSqlDatabase_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

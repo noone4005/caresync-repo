@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-caresync-proje"
+		},
+		"LS_AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://keyvault-caresync-pro.vault.azure.net/"
+		},
+		"LS_PostgreSql_properties_typeProperties_server": {
+			"value": "ep-super-flower-bi2m3yt2-pooler.c-5.ap-southeast-1.aws.neon.tech"
+		},
+		"LS_PostgreSql_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"LS_PostgreSql_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		},
+		"Ls_AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "caresyncserver-server.database.windows.net"
+		},
+		"Ls_AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "caresync-server"
+		},
+		"Ls_AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "admin1"
+		},
+		"Ls_st_properties_typeProperties_url": {
+			"value": "https://stcaresycdata.dfs.core.windows.net/"
+		}
+	}
+}
