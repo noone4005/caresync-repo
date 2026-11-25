@@ -1,0 +1,64 @@
+{
+	"name": "pipeline_source_silver_main",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "PostgreSqlV2Source",
+						"query": {
+							"value": "SELECT * FROM PUBLIC.@{pipeline().parameters.table_id}",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "DS_porst_sql1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "timestamp",
+					"value": {
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-DDThh:mm:ss')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"table_id": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"timestamp": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
