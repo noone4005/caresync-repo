@@ -1,0 +1,19 @@
+{
+	"name": "Jsonf_ile_cong",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Ls_st",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "table_config.json",
+				"fileSystem": "jsonapproach"
+			}
+		},
+		"schema": {}
+	}
+}
